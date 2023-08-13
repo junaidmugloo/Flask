@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/test.css')}}">
+    <script src="{{url_for('static', filename='js/test.js')}}"></script>
+</head>
+<body>
+    <h1>home</h1>
+<form action="/" method="post">
+    <input type="text" name="name">
+    <input type="text" name="task">
+    <input type="submit" value="submit">
+</form>
+    <table border="1px" white=50%>
+        <tr>
+        <th>Sno</th>
+        <th>Name</th>
+        <th>Task</th>
+        <th>Time</th>
+        <th colspan="2">Options</th>
+    </tr>
+        {% for tasks in task %}
+        <tr>
+        <th>{{loop.index}}</th>
+        <td>{{tasks.name}}</td>
+        <td>{{tasks.task}}</td>
+        <td>{{tasks.date_joined}}</td>
+        <td><a href="/delete/{{tasks.id}}">Delete</a></td>
+        <td><a href="/update/{{tasks.id}}">Update</a></td>
+    </tr>
+        {% endfor %}
+    </table>
+
+
+</body>
+</html>

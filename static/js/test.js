@@ -1,0 +1,1 @@
+console.log("im juniad mugloo a python programmer")
